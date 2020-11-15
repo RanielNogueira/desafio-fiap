@@ -19,3 +19,7 @@ A solução está dividida em camadas, abaixo o detalhamento:
 
 Na pasta "Script Database", se encontra o script para criar o banco de dados e a tabela necessária para o funcionamento da aplicação.
 
+# Adendo
+
+Alterar as strings de conexão, nas aplicações UI.Cliente e UI.Admin, para a nova instância do SQL Server.
+
