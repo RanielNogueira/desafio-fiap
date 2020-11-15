@@ -1,0 +1,308 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br" ng-cloak ng-app="desafio" ng-controller="desafioController">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Desafio</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/custom.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css"  />
+</head>
+<body>
+    <nav class="navbar navbar-light bg-white  navbar-expand-md">
+        <div class="container">
+            <a class="navbar-brand" asp-controller="home" asp-action="index">
+                <img src="~/images/logo.png" height="30" alt="image">
+            </a>
+        </div>
+    </nav>
+    <section class="ov-hidden pt-5 pb-5 bg-dark position-relative" style="min-height:100vh; background-image: url('/images/vegetais.jpg'); background-size: cover;">
+
+        <div class="bg-overlay"></div>
+
+        <div class="container pt-5 pb-5 position-relative">
+            <div class="row d-flex justify-content-between pt-lg-5 align-items-center">
+                <div class="col-xl-5 col-lg-6 col-md-7 text-center text-lg-left mb-5 mb-lg-0">
+                    <h1 class="display-3 font-weight-bold text-white" data-aos="fade-up">Tenha uma alimentação saudável.</h1>
+                    <div class="my-4" data-aos="fade-up">
+                        <p class="lead text-white">Produtos orgânicos e frescos, perto de você.</p>
+                    </div>
+                    <div class="d-flex justify-content-center justify-content-lg-start" data-aos="fade-up">
+                        <div class="d-flex mr-2">
+                            <i class="fas fa-star fa-lg text-warning m-1"></i>
+                            <i class="fas fa-star fa-lg text-warning m-1"></i>
+                            <i class="fas fa-star fa-lg text-warning m-1"></i>
+                            <i class="fas fa-star fa-lg text-warning m-1"></i>
+                            <i class="fas fa-star fa-lg text-warning m-1"></i>
+                        </div>
+                        <span class="text-white">(Análise de clientes: 4.9/5)</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row justify-content-center" ng-cloak>
+                        <div class="col-xl-8 col-md-10">
+                            <form name="formSub" id="formSub" ng-cloak ng-submit="subscribe(sub)" class="position-relative d-block" data-aos="fade-up">
+                                <div class="form-group">
+                                    <label class="text-white" for="name">Seu nome</label>
+                                    <input required ng-model="sub.name" ng-minlength="3" maxlength="250" ng-maxlength="250" name="name" id="name" autocomplete="off" type="text" class="form-control form-control-lg" placeholder="Ex: Nome do Cliente">
+                                    <p class="text-danger" ng-show="formSub.name.$error.required && formSub.name.$touched">O Nome precisa ser preenchido.</p>
+                                    <p class="text-danger" ng-show="formSub.name.$error.minlength">O Nome precisa ter entre 3 e 250 caracteres.</p>
+                                    <p class="text-danger" ng-show="formSub.name.$error.maxlength">O Nome deve ter no máximo 250 caracteres.</p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="text-white" for="email">Seu E-mail</label>
+                                    <input required ng-model="sub.email" maxlength="250" name="email" id="email" autocomplete="off" type="email" class="form-control form-control-lg" placeholder="Ex: seuemail@dominio.com">
+                                    <p class="text-danger" ng-show="formSub.email.$error.required && formSub.email.$touched">O E-mail precisa ser preenchido.</p>
+                                    <p class="text-danger" ng-show="formSub.email.$error.email">O E-mail não é válido.</p>
+                                    <p class="text-danger" ng-show="formSub.email.$error.maxlength">O E-mail deve ter no máximo 250 caracteres.</p>
+                                </div>
+                                <div class="form-group text-center">
+                                    <button class="btn btn-lg btn-success btn-block mb-2" ng-disabled="formSub.$invalid || loading" type="submit"><i class="fa {{loading ? 'fa-spin fa-spinner' : 'fa-paper-plane'}}"></i> {{loading ? 'Aguarde' : 'Confirmar'}}</button>
+                                    <small class="text-white">Você recebera novidades em seu e-mail.</small>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="pb-5 bg-light">
+
+        <div class="container-fluid bg-gradient p-5">
+            <div class="row m-auto text-center w-75">
+
+                <div class="col-4 princing-item blue">
+                    <div class="pricing-divider ">
+                        <h3 class="text-light">Iniciante</h3>
+                        <h4 class="my-0 display-2 text-light font-weight-normal mb-3"><span class="h3">R$</span> 120 <span class="h5">/mês</span></h4>
+                        <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
+                        <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
+	c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>
+                        <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
+	c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z' fill='#FFFFFF' opacity='0.6'></path>
+                        <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716
+	H42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>
+                        <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428
+	c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>
+        </svg>
+                    </div>
+                    <div class="card-body bg-white mt-0 shadow">
+                        <ul class="list-unstyled mb-5 position-relative">
+                            <li><b>1</b> cesta de legumes no mês</li>
+                            <li><b>1</b> cesta de frutas no mês</li>
+                            <li><b>Entrega </b>até 3km grátis</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="col-4 princing-item blue">
+                    <div class="pricing-divider ">
+                        <h3 class="text-light">Entusiasta</h3>
+                        <h4 class="my-0 display-2 text-light font-weight-normal mb-3"><span class="h3">R$</span> 250 <span class="h5">/mês</span></h4>
+                        <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
+                        <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
+	c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>
+                        <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
+	c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z' fill='#FFFFFF' opacity='0.6'></path>
+                        <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716
+	H42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>
+                        <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428
+	c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>
+        </svg>
+                    </div>
+
+                    <div class="card-body bg-white mt-0 shadow">
+                        <ul class="list-unstyled mb-5 position-relative">
+                            <li><b>2</b> cestas de legumes no mês</li>
+                            <li><b>2</b> cestas de frutas no mês</li>
+                            <li><b>Entrega </b>até 10km grátis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-4 princing-item blue">
+                    <div class="pricing-divider ">
+                        <h3 class="text-light">Pró-Saúde</h3>
+                        <h4 class="my-0 display-2 text-light font-weight-normal mb-3"><span class="h3">R$</span> 450 <span class="h5">/mês</span></h4>
+                        <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
+                        <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729
+	c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>
+                        <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729
+	c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z' fill='#FFFFFF' opacity='0.6'></path>
+                        <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716
+	H42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>
+                        <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428
+	c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>
+        </svg>
+                    </div>
+
+                    <div class="card-body bg-white mt-0 shadow">
+                        <ul class="list-unstyled mb-5 position-relative">
+                            <li><b>4</b> cestas de legumes no mês</li>
+                            <li><b>4</b> cestas de frutas no mês</li>
+                            <li><b>Entrega </b> grátis</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="pb-5 bg-light">
+        <div class="container pb-5">
+            <div class="row d-flex justify-content-between">
+                <div class="col-md-6">
+                    <h3 class=" display-4 font-weight-bold" data-aos="fade-up">Comodidade</h3>
+                    <p class="lead mt-4" data-aos="fade-up">A maioria dos nossos fornecedores, são produtores de sua região, procuramos um fornecedor mais próximo de você.</p>
+                    <p class="lead mt-4" data-aos="fade-up">Algumas das empresas que fazem parte do grupo GPA e que contam com o estoque de produtos que sãom fornecidos a partir da agricultura familiar.</p>
+                    <div class="row row-grid">
+                        <div class="col-xs-4 col-md-4 my-1 " data-aos="fade-up">
+                            <img src="https://logodownload.org/wp-content/uploads/2020/04/assai-atacadista-logo-4.png" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-xs-4 col-md-4 my-1" data-aos="fade-up">
+                            <img src="https://logodownload.org/wp-content/uploads/2014/12/extra-logo-mercado-3.png" alt="" class="img-fluid mt-3">
+                        </div>
+                        <div class="col-xs-4 col-md-4 my-1" data-aos="fade-up">
+                            <img src="https://logodownload.org/wp-content/uploads/2014/05/pao-de-acucar-logo-5.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5" data-aos="fade-up">
+                    <div id="carouselExampleTestimonials" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item">
+                                <div class="container-fluid">
+                                    <div class="row   justify-content-center d-flex  ">
+                                        <div class="col-md-12  card px-5 text-dark py-5">
+                                            <div class="d-flex justify-content-center justify-content-lg-start">
+                                                <div class="d-flex mr-2">
+                                                    <i class="fas fa-star text-warning mr-1"></i>
+                                                    <i class="fas fa-star text-warning mr-1"></i>
+                                                    <i class="fas fa-star text-warning mr-1"></i>
+                                                    <i class="fas fa-star text-warning mr-1"></i>
+                                                    <i class="fas fa-star text-warning mr-1"></i>
+                                                </div>
+                                            </div>
+                                            <blockquote class="blockquote blockquote-reverse mt-4">
+                                                <p class="lead font-weight-bold mt-2">"A comodidade de receber os produtos em casa é o maior benefício".</p>
+                                                <div class="mt-3 d-flex align-items-center pt-2">
+
+                                                    <div class="d-block">
+                                                        <p class="mb-0">Francisco Torres</p>
+                                                        <p class="small">Cliente</p>
+                                                    </div>
+                                                </div>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="container-fluid">
+                                    <div class="row justify-content-center d-flex  ">
+                                        <div class="col-md-12  card px-5 text-dark py-5">
+                                            <div class="d-flex justify-content-center justify-content-lg-start">
+                                                <div class="d-flex mr-2">
+                                                    <i class="fas fa-star text-warning mr-1"></i>
+                                                    <i class="fas fa-star text-warning mr-1"></i>
+                                                    <i class="fas fa-star text-warning mr-1"></i>
+                                                    <i class="fas fa-star text-warning mr-1"></i>
+                                                    <i class="fas fa-star text-warning mr-1"></i>
+                                                </div>
+                                            </div>
+                                            <blockquote class="blockquote blockquote-reverse mt-4">
+                                                <p class="lead font-weight-bold mt-2">"Sem sombra de dúvidas, este é o lugar onde encontrar o melhor de frutas e vegetais frescos e com preço imbatível".</p>
+                                                <div class="mt-3 d-flex align-items-center pt-2">
+                                                    <div class="d-block">
+                                                        <p class="mb-0">Raniel Nogueira</p>
+                                                        <p class="small">Cliente</p>
+                                                    </div>
+                                                </div>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item active">
+                                <div class="container-fluid">
+                                    <div class="row justify-content-center d-flex  ">
+                                        <div class="col-md-12  card px-5 text-dark py-5">
+                                            <div class="d-flex justify-content-center justify-content-lg-start">
+                                                <div class="d-flex mr-2">
+                                                    <i class="fas fa-star text-warning mr-1"></i>
+                                                    <i class="fas fa-star text-warning mr-1"></i>
+                                                    <i class="fas fa-star text-warning mr-1"></i>
+                                                    <i class="fas fa-star text-warning mr-1"></i>
+                                                    <i class="fas fa-star text-warning mr-1"></i>
+                                                </div>
+                                            </div>
+                                            <blockquote class="blockquote blockquote-reverse mt-4">
+                                                <p class="lead font-weight-bold mt-2">"Aumentamos nosso cultivo, com constantes demandas de novos clientes".</p>
+                                                <div class="mt-3 d-flex align-items-center pt-2">
+
+                                                    <div class="d-block">
+                                                        <p class="mb-0">José Alves</p>
+                                                        <p class="small">Agricultor</p>
+                                                    </div>
+                                                </div>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-0 mt-0">
+        <div class="footer text-white">
+            <div class="bg-dark">
+                <div class="container">
+
+                    <div class="row f-flex justify-content-center" style="">
+                        <div class="col text-center  text-secondary my-1">
+                            <p class="mt-2  text-white">
+                                © Copyright @DateTime.Now.Year • Todos os direitos reservados
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.10.0/sweetalert2.all.js" integrity="sha512-e7ZAMyNHTG4vWygAvkLIUNjAiuDvZBjIFvPVp48c138M6bLcP+WN7xJr9rxg61nfTjMvGuEzOLgnoYNnT3kzzQ==" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200,
+        })
+    </script>
+
+
+    <!-- Dependences AngularJS-->
+    <script src="~/lib/angular/angular.js"></script>
+    <script src="~/js/app/service/http-factory.js"></script>
+    <script src="~/js/app/app.js"></script>
+    <script src="~/js/app/subscribe-controller.js"></script>
+
+</body>
+
+
+</html>

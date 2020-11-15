@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "angular.js@1.8.2",
+      "destination": "wwwroot/lib/angular/"
+    },
+    {
+      "library": "angular-datatables@0.6.4",
+      "destination": "wwwroot/lib/angular-datatables/"
+    },
+    {
+      "library": "datatables@1.10.21",
+      "destination": "wwwroot/lib/datatables/"
+    },
+    {
+      "library": "limonte-sweetalert2@10.10.0",
+      "destination": "wwwroot/lib/limonte-sweetalert2/",
+      "files": [
+        "sweetalert2.min.js",
+        "sweetalert2.all.js",
+        "sweetalert2.all.min.js",
+        "sweetalert2.css",
+        "sweetalert2.js",
+        "sweetalert2.min.css"
+      ]
+    }
+  ]
+}

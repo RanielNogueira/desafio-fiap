@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Styles{
+    <link href="~/lib/datatables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+}
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4" ng-app="desafio" ng-controller="desafioController">
+
+    <div class="table-responsive">
+        <table class="table table-striped table-sm" datatable="ng" dt-options="dtOptions">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th class="text-center">Data</th>
+                    <th class="text-center">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in list">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.email}}</td>
+                    <td class="text-center">{{item.dtCreate | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                    <td class="text-center">
+                        <button class="btn btn-info btn-sm" ng-click="details(item)"><span data-feather="eye"></span> Detalhes</button>
+                        <button ng-click="delete(item.id)" class="btn btn-danger btn-sm"><span data-feather="x-circle"></span> Remover</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="modal fade" id="modalDetails" data-backdrop="static" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-dark">
+                    <h5 class="modal-title text-white">Informações</h5>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation" autocomplete="off" name="formSub" id="formSub" novalidate>
+                        <div class="form-group">
+                            <div class="col-12">
+                                <label class="control-label" for="name">Nome</label>
+                                <input required name="name" ng-minlength="3" maxlength="250" ng-maxlength="250" id="name" autocomplete="off" ng-model="sub.name" ng-class="!formSub.name.$touched && !formSub.name.$dirty ? 'form-control' : (formSub.name.$valid ? 'form-control is-valid' : 'form-control is-invalid')" type="text" />
+                                <p class="text-danger font-italic" ng-if="formSub.name.$error.required && formSub.name.$touched">O Nome precisa ser preenchido.</p>
+                                <p class="text-danger font-italic" ng-if="formSub.name.$error.minlength">O Nome precisa ter entre 3 e 250 caracteres.</p>
+                                <p class="text-danger font-italic" ng-if="formSub.name.$error.maxlength">O Nome deve ter no máximo 250 caracteres.</p>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-12">
+                                <label class="control-label" for="name">E-mail</label>
+                                <input required name="email" id="email" maxlength="250" ng-maxlength="250" autocomplete="off" ng-model="sub.email" ng-class="!formSub.email.$touched && !formSub.email.$dirty ? 'form-control' : (formSub.email.$valid ? 'form-control is-valid' : 'form-control is-invalid')" type="email" />
+                                <p class="text-danger font-italic" ng-if="formSub.email.$error.required && formSub.email.$touched">O E-mail precisa ser preenchido.</p>
+                                <p class="text-danger font-italic" ng-if="formSub.email.$error.email">O E-mail não é válido.</p>
+                                <p class="text-danger font-italic" ng-if="formSub.email.$error.maxlength">O E-mail deve ter no máximo 250 caracteres.</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer align-content-end">
+                    <button class="btn btn-danger btn-sm" type="button" data-dismiss="modal"><span data-feather="x-circle"></span> Fechar</button>
+                    <button class="btn btn-success btn-sm" type="button" ng-click="save(sub)" ng-disabled="formSub.$invalid"><span data-feather="save"></span> Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+
+
+@section Scripts{
+
+    <!-- Dependences AngularJS-->
+    <script src="~/lib/datatables/js/jquery.dataTables.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.js"></script>
+    <script src="~/lib/angular/angular.js"></script>
+    <script src="~/lib/angular-datatables/angular-datatables.js"></script>
+    <script src="~/js/app/service/http-service.js"></script>
+    <script src="~/js/app/app.js"></script>
+    <script src="~/js/app/admin-controller.js"></script>
+
+}

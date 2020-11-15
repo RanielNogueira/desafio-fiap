@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Desafio para vaga na FIAP">
+    <meta name="author" content="Raniel Nogueira">
+
+    <title>Admin Desafio - @ViewBag.Title</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <link href="~/css/site.css" rel="stylesheet">
+    <link href="~/lib/limonte-sweetalert2/sweetalert2.css" rel="stylesheet" />
+    @RenderSection("Styles", false)
+</head>
+
+<body>
+
+    @await Html.PartialAsync("_Nav")
+    <div class="container-fluid">
+        <div class="row">
+            @RenderBody()
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/limonte-sweetalert2/sweetalert2.js"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+        feather.replace()
+    </script>
+
+
+    @RenderSection("Scripts", false)
+</body>
+</html>
