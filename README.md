@@ -1,5 +1,5 @@
 # Desafio
-[![N|Solid](https://lh3.googleusercontent.com/proxy/x_fBckbcHJlQsDvDKYeNeAqp9AnRBgdd_3A_8NO_Q7eb93pJWwiwC9nvOmk73KGwkqDp3aCNcjnoMsnj8P57ajiL54KVmg06d33xvbZJ4uOVR2ReEG0YNqGMUBkMJcNS_g83uDWgKlkn)](#)
+[![N|Solid](https://upload.wikimedia.org/wikipedia/commons/d/d4/Fiap-logo-novo.jpg)](#)
 
 # Tecnologias utilizadas
 
